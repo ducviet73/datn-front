@@ -19,7 +19,7 @@ const QuanLyDonHangAdmin = () => {
   useEffect(() => {
     const layDonHangs = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/orders");
+        const response = await axios.get("https://datn-back.onrender.com/orders");
         setDonHangs(response.data);
         setDonHangsLoc(response.data);
       } catch (error) {
@@ -32,7 +32,7 @@ const QuanLyDonHangAdmin = () => {
 
     const layThuNhapTong = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/orders/incomes/total");
+        const response = await axios.get("https://datn-back.onrender.com/orders/incomes/total");
         setThuNhapTong(response.data.total);
       } catch (error) {
         console.error("Lỗi khi lấy thu nhập tổng:", error);
@@ -82,7 +82,7 @@ const QuanLyDonHangAdmin = () => {
   // Cập nhật trạng thái đơn hàng
   const handleThayDoiTrangThai = async (orderId, newStatus) => {
     try {
-        const response = await fetch(`http://localhost:3000/orders/status/${orderId}`, {
+        const response = await fetch(`https://datn-back.onrender.com/orders/status/${orderId}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -105,7 +105,7 @@ const QuanLyDonHangAdmin = () => {
          ));
            const layThuNhapTong = async () => {
                 try {
-                  const response = await axios.get("http://localhost:3000/orders/incomes/total");
+                  const response = await axios.get("https://datn-back.onrender.com/orders/incomes/total");
                   setThuNhapTong(response.data.total);
                 } catch (error) {
                   console.error("Lỗi khi lấy thu nhập tổng:", error);
@@ -123,7 +123,7 @@ const QuanLyDonHangAdmin = () => {
   const handleXoaDonHang = async (orderId) => {
     if (window.confirm("Bạn có chắc chắn muốn xóa đơn hàng này?")) {
       try {
-        await axios.delete(`http://localhost:3000/orders/${orderId}`);
+        await axios.delete(`https://datn-back.onrender.com/orders/${orderId}`);
         setDonHangs(donHangs.filter((order) => order._id !== orderId));
         setDonHangsLoc(donHangsLoc.filter((order) => order._id !== orderId));
         if (donHangChon && donHangChon._id === orderId) {
@@ -131,7 +131,7 @@ const QuanLyDonHangAdmin = () => {
         }
         const layThuNhapTong = async () => {
           try {
-            const response = await axios.get("http://localhost:3000/orders/incomes/total");
+            const response = await axios.get("https://datn-back.onrender.com/orders/incomes/total");
             setThuNhapTong(response.data.total);
           } catch (error) {
             console.error("Lỗi khi lấy thu nhập tổng:", error);
@@ -149,7 +149,7 @@ const QuanLyDonHangAdmin = () => {
   // Lọc đơn hàng theo trạng thái
   const handleLocTheoTrangThai = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/orders/status/${trangThai}`);
+      const response = await axios.get(`https://datn-back.onrender.com/orders/status/${trangThai}`);
       setDonHangsLoc(response.data);
       setLoi("");
     } catch (error) {
@@ -161,7 +161,7 @@ const QuanLyDonHangAdmin = () => {
   // Lọc đơn hàng theo ngày
   const handleLocTheoNgay = async () => {
     try {
-      const response = await axios.get(`http://localhost:3000/orders/date/${ngay}`);
+      const response = await axios.get(`https://datn-back.onrender.com/orders/date/${ngay}`);
       setDonHangsLoc(response.data);
       setLoi("");
     } catch (error) {

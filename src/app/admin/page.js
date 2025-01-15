@@ -16,14 +16,14 @@ export default function Dashboard() {
     // Fetch products count with SWR
     const fetcher = (url) => fetch(url).then((res) => res.json());
     const { data: productData, error: productError } = useSWR(
-        `http://localhost:3000/products/page?page=1&limit=5`,
+        `https://datn-back.onrender.com/products/page?page=1&limit=5`,
         fetcher
     );
 
     useEffect(() => {
         // Fetch user-specific orders
         axios
-            .get(`http://localhost:3000/orders`)
+            .get(`https://datn-back.onrender.com/orders`)
             .then((response) => {
                 setOrders(response.data);
             })
@@ -34,7 +34,7 @@ export default function Dashboard() {
 
         // Fetch customers count
         axios
-            .get(`http://localhost:3000/users/count`)
+            .get(`https://datn-back.onrender.com/users/count`)
             .then((response) => {
                 setCustomersCount(response.data.count);
             })
@@ -45,7 +45,7 @@ export default function Dashboard() {
 
         // Fetch total incomes
         axios
-            .get(`http://localhost:3000/orders/incomes/total`)
+            .get(`https://datn-back.onrender.com/orders/incomes/total`)
             .then((response) => {
                 setIncomes(response.data.total);
             })

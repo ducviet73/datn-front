@@ -1,4 +1,5 @@
 
+
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -11,7 +12,7 @@ const TotalIncome = () => {
     useEffect(() => {
         const fetchTotalIncome = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/orders/incomes/total');
+                const response = await axios.get('https://datn-back.onrender.com/orders/incomes/total');
                 setTotalIncome(response.data.total);
             } catch (err) {
                 setError('Không thể lấy tổng doanh thu.');

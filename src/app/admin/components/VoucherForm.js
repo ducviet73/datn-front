@@ -59,13 +59,13 @@
          console.log('Data to submit:', submitData); // Log ở đây
 
          if (voucher) {
-             axios.put(`http://localhost:3000/api/vouchers/${voucher._id}`, submitData)
+             axios.put(`https://datn-back.onrender.com/api/vouchers/${voucher._id}`, submitData)
                  .then(() => {
                      onVoucherUpdated();
                   })
                  .catch(error => console.error("Có lỗi xảy ra:", error));
          } else {
-             axios.post(`http://localhost:3000/api/vouchers`, submitData)
+             axios.post(`https://datn-back.onrender.com/api/vouchers`, submitData)
                  .then(() => {
                      onVoucherUpdated();
                  })

@@ -7,7 +7,7 @@ import ProductBestselling from "./components/productbestselling";
 import ProductHot from "./components/producthot";
 
 export default async function Home() {
-  const res = await fetch("http://localhost:3000/products", {
+  const res = await fetch("https://datn-back.onrender.com/products", {
     cache: "no-store",
   });
   const data = await res.json();

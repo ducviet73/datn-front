@@ -22,16 +22,16 @@ export default function Detail({ params }) {
     const user = useSelector((state) => state.auth.user);
 
     const { data, error, isLoading } = useSWR(
-        `http://localhost:3000/products/detail/${params.id}`,
+        `https://datn-back.onrender.com/products/detail/${params.id}`,
         fetcher
     );
     const { data: reviewsData, error: reviewsError, isLoading: reviewsLoading, mutate: mutateReviews } = useSWR(
-        `http://localhost:3000/api/reviews/${params.id}`,
+        `https://datn-back.onrender.com/api/reviews/${params.id}`,
         fetcher
     );
 
     // const { data: promotionalProductData } = useSWR(
-    //     `http://localhost:3000/api/promotional-products`,
+    //     `https://datn-back.onrender.com/api/promotional-products`,
     //     fetcher
     // );
 
@@ -90,7 +90,7 @@ export default function Detail({ params }) {
             }
             mutateReviews([...reviewsData, newReviewObject], false)
 
-            const response = await fetch(`http://localhost:3000/api/reviews`, {
+            const response = await fetch(`https://datn-back.onrender.com/api/reviews`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

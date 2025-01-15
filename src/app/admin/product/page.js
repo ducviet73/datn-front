@@ -14,7 +14,7 @@ export default function Product() {
 
   // Lấy dữ liệu sản phẩm theo trang hiện tại
   const { data: productData, error, isLoading } = useSWR(
-    `http://localhost:3000/products/page?page=${currentPage}&limit=5`,
+    `https://datn-back.onrender.com/products/page?page=${currentPage}&limit=5`,
     fetcher,
     {
       refreshInterval: 10000, // Tự động làm mới mỗi 10 giây
@@ -25,7 +25,7 @@ export default function Product() {
   const deleteItem = async (itemId) => {
     if (confirm('Bạn có chắc chắn muốn xóa không?')) {
       try {
-        const response = await fetch(`http://localhost:3000/products/${itemId}`, {
+        const response = await fetch(`https://datn-back.onrender.com/products/${itemId}`, {
           method: 'DELETE',
           headers: {
             'Content-Type': 'application/json'

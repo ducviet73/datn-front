@@ -70,7 +70,7 @@ const CheckoutPage = () => {
         }
 
         try {
-            const response = await axios.get(`http://localhost:3000/api/vouchers/${voucherCode}`);
+            const response = await axios.get(`https://datn-back.onrender.com/api/vouchers/${voucherCode}`);
             if (response.data) {
                  if (response.data.is_active === false) {
                         setErrorMessage("Voucher has expired.");
@@ -134,7 +134,7 @@ const CheckoutPage = () => {
          console.log("order detail before fetch: ", orderDetails);
     
         try {
-            const response = await fetch(`http://localhost:3000/orders`, {
+            const response = await fetch(`https://datn-back.onrender.com/orders`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

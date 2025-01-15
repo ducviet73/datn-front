@@ -17,7 +17,7 @@ const UserListWithRoleUpdate = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('http://localhost:3000/users');
+                const response = await axios.get('https://datn-back.onrender.com/users');
                 const userList = response.data;
                 setUsers(userList);
                 setUserStats({
@@ -140,7 +140,7 @@ const RoleUpdateForm = ({ userId, onRoleUpdated, onClose }) => {
 
     useEffect(() => {
         if (userId) {
-            axios.get(`http://localhost:3000/users/${userId}`)
+            axios.get(`https://datn-back.onrender.com/users/${userId}`)
                 .then(response => setRole(response.data.role))
                 .catch(error => console.error("Có lỗi xảy ra:", error));
         }
@@ -152,7 +152,7 @@ const RoleUpdateForm = ({ userId, onRoleUpdated, onClose }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`http://localhost:3000/users/${userId}`, { role })
+        axios.put(`https://datn-back.onrender.com/users/${userId}`, { role })
             .then(() => {
                 onRoleUpdated();
             })

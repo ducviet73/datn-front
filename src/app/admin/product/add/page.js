@@ -56,7 +56,7 @@ const validationSchema = Yup.object({
 
 export default function ProductAdd() {
     // Lấy danh mục
-    const { data: categories, error: categoriesError } = useSWR("http://localhost:3000/categories", fetcher);
+    const { data: categories, error: categoriesError } = useSWR("https://datn-back.onrender.com/categories", fetcher);
 
     // Cấu hình Formik
     const formik = useFormik({
@@ -97,7 +97,7 @@ export default function ProductAdd() {
             console.log('FormData sẽ gửi:', data);
     
             try {
-                const response = await fetch('http://localhost:3000/products', {
+                const response = await fetch('https://datn-back.onrender.com/products', {
                     method: 'POST',
                     body: data,
                 });

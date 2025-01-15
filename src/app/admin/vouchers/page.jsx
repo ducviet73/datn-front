@@ -17,7 +17,7 @@ const VoucherListWithActions = () => {
 
      const fetchVouchers = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/api/vouchers`);
+                const response = await axios.get(`https://datn-back.onrender.com/api/vouchers`);
                 const voucherList = response.data;
                 setVouchers(voucherList);
                 setVoucherStats({
@@ -43,7 +43,7 @@ const VoucherListWithActions = () => {
     const handleEditVoucherClick = async (voucherId) => {
         try {
              const voucher = vouchers.find(v=> v._id === voucherId)
-             const response = await axios.get(`http://localhost:3000/api/vouchers/${voucher.voucher_code}`);
+             const response = await axios.get(`https://datn-back.onrender.com/api/vouchers/${voucher.voucher_code}`);
               setEditingVoucher(response.data);
               setShowVoucherForm(true);
             } catch (error) {
@@ -63,7 +63,7 @@ const VoucherListWithActions = () => {
 
     const handleDeleteVoucher = async (id) => {
         try {
-            await axios.delete(`http://localhost:3000/api/vouchers/${id}`);
+            await axios.delete(`https://datn-back.onrender.com/api/vouchers/${id}`);
             setVouchers(vouchers.filter(voucher => voucher._id !== id));
              setVoucherStats(prevState => ({
                    ...prevState,

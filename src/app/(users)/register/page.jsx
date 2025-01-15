@@ -24,7 +24,7 @@ const Register = () => {
 
     const handleSubmit = async (values) => {
         try {
-            const response = await axios.post('http://localhost:3000/users/register', values);
+            const response = await axios.post('https://datn-back.onrender.com/users/register', values);
     
             if (response.status === 200) {
                 dispatch(registerSuccess(response.data));

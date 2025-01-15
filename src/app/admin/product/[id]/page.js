@@ -56,10 +56,10 @@ export default function ProductEdit({ params }) {
     const productId = params.id; // Assume the product ID is passed as a route parameter
 
     // Fetch categories
-    const { data: categories, error: categoriesError } = useSWR("http://localhost:3000/categories", fetcher);
+    const { data: categories, error: categoriesError } = useSWR("https://datn-back.onrender.com/categories", fetcher);
 
     // Fetch product details
-    const { data: product, error: productError } = useSWR(productId ? `http://localhost:3000/products/detail/${productId}` : null, fetcher);
+    const { data: product, error: productError } = useSWR(productId ? `https://datn-back.onrender.com/products/detail/${productId}` : null, fetcher);
 
     // Formik setup
     const formik = useFormik({
@@ -102,7 +102,7 @@ export default function ProductEdit({ params }) {
             console.log("Fetching product with ID:", productId);
 
             try {
-                const response = await fetch(`http://localhost:3000/products/${productId}`, {
+                const response = await fetch(`https://datn-back.onrender.com/products/${productId}`, {
                     method: 'PUT',
                     body: data,
                 });

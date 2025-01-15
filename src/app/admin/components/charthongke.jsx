@@ -14,7 +14,7 @@ export default function CharThongKe() {
         // Fetch dữ liệu từ API
         const fetchStatistics = async () => {
             try {
-                const response = await fetch("http://localhost:3000/orders/incomes/statistics?year=2024&month=12"); // Đường dẫn API
+                const response = await fetch("https://datn-back.onrender.com/orders/incomes/statistics?year=2024&month=12"); // Đường dẫn API
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }
